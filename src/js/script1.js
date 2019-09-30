@@ -1,1 +1,1 @@
-var a = 0;
+let exampleVariable1 = 1;
