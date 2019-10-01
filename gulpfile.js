@@ -1,3 +1,11 @@
+/*
+  - Author: Linus Östlund
+  - Contact: list1507@student.miun.se
+  - Course: Webbutveckling III
+  - Assignment: Moment 2 - NodeJs och Gulp
+  - Last updated: 2019-10-01
+*/
+
 /* - Includes - */
 const gulp = require('Gulp');
 const concat = require('gulp-concat');
@@ -26,14 +34,6 @@ function cssTask()
   .pipe(browserSync.stream());
 }
 
-// Task: Copy HTML.
-function htmlTask()
-{
-  return gulp.src(files.htmlPath)
-  .pipe(gulp.dest('pub'))
-  .pipe(browserSync.stream());
-}
-
 // Task: Concatenate and minify Javascript.
 function jsTask()
 {
@@ -41,6 +41,14 @@ function jsTask()
   .pipe(concat('main.js'))
   .pipe(terser())
   .pipe(gulp.dest('pub/js'))
+  .pipe(browserSync.stream());
+}
+
+// Task: Copy HTML.
+function htmlTask()
+{
+  return gulp.src(files.htmlPath)
+  .pipe(gulp.dest('pub'))
   .pipe(browserSync.stream());
 }
 
